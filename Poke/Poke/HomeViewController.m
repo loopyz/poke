@@ -83,10 +83,6 @@
   [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
   self.navigationController.navigationBar.translucent = NO;
   
-  //back button
-  self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create Game" style:UIBarButtonItemStylePlain target:nil action:nil];
-  
-  
   [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
   
 }
