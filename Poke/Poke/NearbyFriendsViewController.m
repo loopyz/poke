@@ -33,6 +33,7 @@
     if (!error) {
       NSArray *data = [result objectForKey:@"data"];
       self.friendsInFB = data;
+      
       [self.tableView reloadData];
     }
   }];
@@ -70,7 +71,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return 60;
+  return 70;
 }
 
 
@@ -84,8 +85,23 @@
   }
   FBGraphObject<FBGraphUser> *tempPerson = self.friendsInFB[indexPath.row];
   cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [tempPerson first_name], [tempPerson last_name]];
+  cell.textLabel.frame = CGRectMake(75, 70/2, 400, 20);
   //cell.backgroundColor = [UIColor clearColor];
   cell.backgroundColor = self.bgColor;
+  
+  // add profile pic
+  FBProfilePictureView *fbProfilePic = [[FBProfilePictureView alloc] init];
+  
+  fbProfilePic.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"profile.png"]];
+  fbProfilePic.frame = CGRectMake(17, 7, 53, 53);
+  
+  //makes it into circle
+  float width = fbProfilePic.bounds.size.width;
+  fbProfilePic.layer.cornerRadius = width/2;
+  fbProfilePic.profileID = tempPerson.objectID;
+  NSLog(@"%@", fbProfilePic.profileID);
+  [cell addSubview:fbProfilePic];
+  
   return cell;
 }
 

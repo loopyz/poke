@@ -11,6 +11,7 @@
 @interface NearbyFriendsViewController : UITableViewController
 
 @property (strong, nonatomic, readwrite) NSMutableArray *friendsInFB;
+@property (strong, nonatomic, readwrite) NSMutableArray *profilePicIds;
 @property (strong, nonatomic) UIColor *bgColor;
 
 @end
