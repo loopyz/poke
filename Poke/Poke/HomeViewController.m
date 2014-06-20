@@ -51,7 +51,6 @@
 
 - (void)initNavBar
 {
-  [self.navigationController setNavigationBarHidden:NO];
   // Background image for navbar
   [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbg.png"]
                                      forBarMetrics: UIBarMetricsDefault];
@@ -60,7 +59,7 @@
   UIBarButtonItem *lbb =  [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"person.png"]
                                                            style:UIBarButtonItemStylePlain
                                                           target:self
-                                                          action:@selector(launchGameView)];
+                                                          action:@selector(launchSettingsView)];
   lbb.tintColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
   self.navigationItem.leftBarButtonItem = lbb;
   
@@ -111,7 +110,6 @@
 {
   [super viewWillAppear:animated];
   [self assignTabColors];
-  [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)changeBG
@@ -122,15 +120,21 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-  [self.navigationController setNavigationBarHidden:NO];
-    // Do any additional setup after loading the view.
+  [super viewDidLoad];
+  // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Action Handlers
+
+- (void)launchSettingsView
+{
+  return;
 }
 
 /*
