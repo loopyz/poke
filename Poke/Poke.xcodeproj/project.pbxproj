@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		464DA6211953DE7000792BDA /* navlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 464DA6201953DE7000792BDA /* navlogo.png */; };
 		46F6B7211953C79B00DDCD6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F6B7201953C79B00DDCD6B /* Foundation.framework */; };
 		46F6B7231953C79B00DDCD6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F6B7221953C79B00DDCD6B /* CoreGraphics.framework */; };
 		46F6B7251953C79B00DDCD6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F6B7241953C79B00DDCD6B /* UIKit.framework */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		464DA6201953DE7000792BDA /* navlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navlogo.png; sourceTree = "<group>"; };
 		46F6B71D1953C79B00DDCD6B /* Poke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F6B7201953C79B00DDCD6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		46F6B7221953C79B00DDCD6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -249,6 +251,7 @@
 		46F6B76C1953D47700DDCD6B /* navbar */ = {
 			isa = PBXGroup;
 			children = (
+				464DA6201953DE7000792BDA /* navlogo.png */,
 				46F6B76F1953D81200DDCD6B /* person.png */,
 				46F6B76D1953D47700DDCD6B /* navbg.png */,
 			);
@@ -330,6 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464DA6211953DE7000792BDA /* navlogo.png in Resources */,
 				46F6B7641953CF3200DDCD6B /* facebook-login.png in Resources */,
 				46F6B72B1953C79B00DDCD6B /* InfoPlist.strings in Resources */,
 				46F6B7651953CF3200DDCD6B /* login-bg.png in Resources */,

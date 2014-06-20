@@ -65,11 +65,12 @@
   self.navigationItem.leftBarButtonItem = lbb;
   
   // Logo in the center of navigation bar
-  UIView *logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 226, 59)];
+  UIView *logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 64.5, 50.5)];
   UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navlogo.png"]];
-  titleImageView.frame = CGRectMake(55, 14, titleImageView.frame.size.width/2, titleImageView.frame.size.height/2);
+  titleImageView.frame = CGRectMake(0, 0, titleImageView.frame.size.width/2, titleImageView.frame.size.height/2);
   [logoView addSubview:titleImageView];
   self.navigationItem.titleView = logoView;
+  
   
   // Right bar button item to launch the categories selection screen.
   UIBarButtonItem *rbb = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"plus.png"]
