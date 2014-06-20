@@ -89,46 +89,33 @@
   return cell;
 }
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   //TODO: MAKE IT SEND A POKE
   UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
   NSString *player = cell.textLabel.text;
-  if (cell.accessoryType == UITableViewCellAccessoryNone) {
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    // sends the person a request. (for now, the table has all fb friends on the app(even ones that you added to your in-app list of friends that you play with)).
-    FBGraphObject<FBGraphUser> *tempPerson = self.friendsInFB[indexPath.row];
-    PFQuery *userQuery = [PFUser query];
-    [userQuery whereKey:@"fbId" equalTo:tempPerson[@"id"]];
-    [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-      if (object && !error) {
-        PFUser *otherUser = (PFUser *) object;
-        PFUser *thisUser = [PFUser currentUser];
-        NSMutableArray *otherRequests = otherUser[@"requests"];
-        if (!otherRequests) {
-          otherRequests = [[NSMutableArray alloc] init];
-        }
-        [otherRequests addObject:thisUser];
-        
-        NSMutableArray *thisRequested = [thisUser objectForKey:@"requested"];
-        if (!thisRequested) {
-          thisRequested = [[NSMutableArray alloc] init];
-        }
-        [thisRequested addObject:otherUser];
-        
-        [otherUser setObject:otherRequests forKey:@"requests"];
-        [thisUser setObject:thisRequested forKey:@"requested"];
-        
-        //[otherUser saveInBackground];
-        //[thisUser saveInBackground];
+  // sends the person a poke. (for now, the table has all fb friends on the app(even ones that you added to your in-app list of friends that you play with)).
+  FBGraphObject<FBGraphUser> *tempPerson = self.friendsInFB[indexPath.row];
+  PFQuery *userQuery = [PFUser query];
+  [userQuery whereKey:@"fbId" equalTo:tempPerson[@"id"]];
+  [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+    if (object && !error) {
+      PFUser *toUser = (PFUser *) object;
+      PFUser *fromUser = [PFUser currentUser];
+      NSMutableArray *toPokes = toUser[@"pokes"];
+      if (!toPokes) {
+        toPokes = [[NSMutableArray alloc] init];
       }
-    }];
-    NSLog(@"accepted player %@", player);
-  } else {
-    // deselected
-    cell.accessoryType = UITableViewCellAccessoryNone;
-    
-  }
+      NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+      [dict setObject:[tempPerson first_name] forKey:@"first_name"];
+      [dict setObject:[tempPerson last_name] forKey:@"last_name"];
+      
+//      [toPokes addObject:fromUser];
+      [toUser setObject:toPokes forKey:@"pokes"];
+    }
+  }];
+  NSLog(@"accepted player %@", player);
+
 }
 @end
 
