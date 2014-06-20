@@ -31,6 +31,7 @@
 		46F6B76A1953D36500DDCD6B /* nearby.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F6B7681953D36500DDCD6B /* nearby.png */; };
 		46F6B76B1953D36500DDCD6B /* pokes.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F6B7691953D36500DDCD6B /* pokes.png */; };
 		46F6B76E1953D47700DDCD6B /* navbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F6B76D1953D47700DDCD6B /* navbg.png */; };
+		46F6B7701953D81200DDCD6B /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F6B76F1953D81200DDCD6B /* person.png */; };
 		7B450AB41953CDD800E791A7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B450AB31953CDD700E791A7 /* Parse.framework */; };
 		7B450ABE1953CE2A00E791A7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B450AB51953CE2A00E791A7 /* AudioToolbox.framework */; };
 		7B450ABF1953CE2A00E791A7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B450AB61953CE2A00E791A7 /* CFNetwork.framework */; };
@@ -86,6 +87,7 @@
 		46F6B7681953D36500DDCD6B /* nearby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearby.png; sourceTree = "<group>"; };
 		46F6B7691953D36500DDCD6B /* pokes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokes.png; sourceTree = "<group>"; };
 		46F6B76D1953D47700DDCD6B /* navbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbg.png; sourceTree = "<group>"; };
+		46F6B76F1953D81200DDCD6B /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person.png; sourceTree = "<group>"; };
 		7B450AB31953CDD700E791A7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		7B450AB51953CE2A00E791A7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7B450AB61953CE2A00E791A7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -247,6 +249,7 @@
 		46F6B76C1953D47700DDCD6B /* navbar */ = {
 			isa = PBXGroup;
 			children = (
+				46F6B76F1953D81200DDCD6B /* person.png */,
 				46F6B76D1953D47700DDCD6B /* navbg.png */,
 			);
 			path = navbar;
@@ -333,6 +336,7 @@
 				46F6B7331953C79B00DDCD6B /* Images.xcassets in Resources */,
 				46F6B76E1953D47700DDCD6B /* navbg.png in Resources */,
 				46F6B7661953CF3200DDCD6B /* logo.png in Resources */,
+				46F6B7701953D81200DDCD6B /* person.png in Resources */,
 				46F6B76B1953D36500DDCD6B /* pokes.png in Resources */,
 				46F6B7621953CF3200DDCD6B /* email-login.png in Resources */,
 				46F6B76A1953D36500DDCD6B /* nearby.png in Resources */,
