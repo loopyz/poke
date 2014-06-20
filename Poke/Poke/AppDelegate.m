@@ -7,14 +7,25 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+  
+  // Create a LoginUIViewController instance where we will put the login button
+  LoginViewController *loginViewController = [[LoginViewController alloc] init];
+  
+  // Setting up UINavigationController
+  UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+  self.navigationController = navigationController;
+  
+  // Updating self.window
+  self.window.rootViewController = navigationController;
+  self.window.backgroundColor = [UIColor colorWithRed:0.953 green:0.949 blue:0.949 alpha:1.0];
+  
     [self.window makeKeyAndVisible];
     return YES;
 }
