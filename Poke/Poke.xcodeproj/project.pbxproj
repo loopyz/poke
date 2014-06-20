@@ -20,6 +20,7 @@
 		46F6B7441953C79B00DDCD6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46F6B7421953C79B00DDCD6B /* InfoPlist.strings */; };
 		46F6B7461953C79B00DDCD6B /* PokeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F6B7451953C79B00DDCD6B /* PokeTests.m */; };
 		46F6B7511953C83500DDCD6B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F6B7501953C83500DDCD6B /* LoginViewController.m */; };
+		46F6B7541953C8CD00DDCD6B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F6B7531953C8CD00DDCD6B /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		46F6B7451953C79B00DDCD6B /* PokeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PokeTests.m; sourceTree = "<group>"; };
 		46F6B74F1953C83500DDCD6B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		46F6B7501953C83500DDCD6B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		46F6B7521953C8CD00DDCD6B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		46F6B7531953C8CD00DDCD6B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				46F6B7271953C79B00DDCD6B /* Supporting Files */,
 				46F6B74F1953C83500DDCD6B /* LoginViewController.h */,
 				46F6B7501953C83500DDCD6B /* LoginViewController.m */,
+				46F6B7521953C8CD00DDCD6B /* HomeViewController.h */,
+				46F6B7531953C8CD00DDCD6B /* HomeViewController.m */,
 			);
 			path = Poke;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				46F6B7311953C79B00DDCD6B /* AppDelegate.m in Sources */,
 				46F6B72D1953C79B00DDCD6B /* main.m in Sources */,
 				46F6B7511953C83500DDCD6B /* LoginViewController.m in Sources */,
+				46F6B7541953C8CD00DDCD6B /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
