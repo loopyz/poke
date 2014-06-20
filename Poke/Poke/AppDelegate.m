@@ -7,13 +7,16 @@
 //
 
 #import "AppDelegate.h"
+
+#import <Parse/Parse.h>
+
 #import "LoginViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   
   // Create a LoginUIViewController instance where we will put the login button
   LoginViewController *loginViewController = [[LoginViewController alloc] init];
@@ -22,12 +25,17 @@
   UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
   self.navigationController = navigationController;
   
+  // For Parse
+  [Parse setApplicationId:@"KfUkRg2MR54ZmVFKjjdxpb5mbmox1Sb2WRsK1TH4"
+                clientKey:@"my0EkDYEgUQoPBiJxpVNoPv8SdFENg5bVUj6lAVa"];
+  [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+  
   // Updating self.window
   self.window.rootViewController = navigationController;
   self.window.backgroundColor = [UIColor colorWithRed:0.953 green:0.949 blue:0.949 alpha:1.0];
   
-    [self.window makeKeyAndVisible];
-    return YES;
+  [self.window makeKeyAndVisible];
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
