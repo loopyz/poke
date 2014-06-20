@@ -84,8 +84,7 @@
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
   }
   FBGraphObject<FBGraphUser> *tempPerson = self.friendsInFB[indexPath.row];
-  cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [tempPerson first_name], [tempPerson last_name]];
-  cell.textLabel.frame = CGRectMake(75, 70/2, 400, 20);
+ 
   //cell.backgroundColor = [UIColor clearColor];
   cell.backgroundColor = self.bgColor;
   
@@ -101,6 +100,13 @@
   fbProfilePic.profileID = tempPerson.objectID;
   NSLog(@"%@", fbProfilePic.profileID);
   [cell addSubview:fbProfilePic];
+  
+  //add name label?
+  UILabel *name = [[UILabel alloc] initWithFrame:CGRectMake(85, 70/2 - 15, 400, 30)];
+  name.text = [NSString stringWithFormat:@"%@ %@", [tempPerson first_name], [tempPerson last_name]];
+  name.font = [UIFont fontWithName:@"Avenir-Light" size:24.0];
+  name.textColor = [UIColor colorWithRed:140/255.0f green:140/255.0f blue:140/255.0f alpha:1.0f];
+  [cell addSubview:name];
   
   return cell;
 }

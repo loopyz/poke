@@ -36,12 +36,12 @@
       
       //SecondViewController
       NearbyFriendsViewController *svc=[[NearbyFriendsViewController alloc]initWithNibName:nil bundle:nil];
-      svc.title=@"";
+      svc.title=@"Nearby";
       svc.tabBarItem.image=[UIImage imageNamed:@"nearby.png"];
       
       //ThirdViewController
       PokesViewController *tvc=[[PokesViewController alloc]initWithNibName:nil bundle:nil];
-      tvc.title=@"";
+      tvc.title=@"Pokes";
       tvc.tabBarItem.image=[UIImage imageNamed:@"pokes.png"];
       
       self.viewControllers=[NSArray arrayWithObjects:svc, tvc, nil];
