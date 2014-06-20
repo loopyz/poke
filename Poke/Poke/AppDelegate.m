@@ -30,12 +30,19 @@
                 clientKey:@"my0EkDYEgUQoPBiJxpVNoPv8SdFENg5bVUj6lAVa"];
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
   
+  [PFFacebookUtils initializeFacebook];
+  
   // Updating self.window
   self.window.rootViewController = navigationController;
   self.window.backgroundColor = [UIColor colorWithRed:0.953 green:0.949 blue:0.949 alpha:1.0];
   
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+  return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[PFFacebookUtils session]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -58,11 +65,15 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
   // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+  [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+  [[PFFacebookUtils session] close];
+
 }
 
 @end

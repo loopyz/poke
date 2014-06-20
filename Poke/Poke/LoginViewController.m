@@ -9,6 +9,10 @@
 #import "LoginViewController.h"
 #import "HomeViewController.h"
 
+#import <Parse/Parse.h>
+
+#import "HomeViewController.h"
+
 @interface LoginViewController ()
 
 @end
@@ -24,17 +28,6 @@
   return self;
 }
 
-- (IBAction)buttonTouched:(id)sender
-{
-  NSArray *permissionsArray = @[@"user_about_me", @"user_friends"];
-  
-  //here have people login
-  
-  //push to view controller?
-  HomeViewController *svc = [[HomeViewController alloc] init];
-  [self.navigationController pushViewController:svc animated:YES];
-}
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -42,7 +35,12 @@
   //[self.navigationController setNavigationBarHidden:YES];
   
   // check if user is cached and linked to Facebook and bypass login if so
-  //here you gooo
+  if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+    //[PFUser logOut];
+    HomeViewController *svc = [[HomeViewController alloc] init];
+    [self.navigationController pushViewController:svc animated:YES];
+    return;
+  }
   
   // otherwise do login
   [self addBackgroundImage];
@@ -54,6 +52,36 @@
   [self setupRegisterButton];
   
 }
+
+- (void)buttonTouched:(id)sender
+{
+  NSArray *permissionsArray = @[@"user_about_me", @"user_friends"];
+  // login PFUser using facebook
+  [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+    if (!user) {
+      if (!error) {
+        NSLog(@"User cancelled the FB Login Process.");
+      } else {
+        NSLog(@"Some error occured during FB Login Process.");
+      }
+    } else if (user.isNew) {
+      NSLog(@"User just joined the app. Successful login.");
+      HomeViewController *svc = [[HomeViewController alloc] init];
+      [self.navigationController pushViewController:svc animated:YES];
+    } else {
+      NSLog(@"Successful login.");
+      HomeViewController *svc = [[HomeViewController alloc] init];
+      [self.navigationController pushViewController:svc animated:YES];
+    }
+  }];
+}
+
+- (void)normalLoginTouched
+{
+  //lol we'll have this later
+}
+
+#pragma mark - Button Setup
 
 - (void)setupRegisterButton
 {
@@ -87,11 +115,6 @@
   [self.view addSubview:self.facebookButton];
 }
 
-- (void)normalLoginTouched
-{
- //lol we'll have this later
-}
-
 - (void)setupFacebookLogin
 {
   // Do any additional setup after loading the view.
@@ -114,11 +137,7 @@
   // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
-}
+#pragma mark - View Setup
 
 - (void)addBackgroundImage
 {

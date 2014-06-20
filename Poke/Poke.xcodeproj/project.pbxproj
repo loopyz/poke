@@ -42,6 +42,7 @@
 		7B450AC41953CE2A00E791A7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B450ABB1953CE2A00E791A7 /* Security.framework */; };
 		7B450AC51953CE2A00E791A7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B450ABC1953CE2A00E791A7 /* StoreKit.framework */; };
 		7B450AC61953CE2A00E791A7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B450ABD1953CE2A00E791A7 /* SystemConfiguration.framework */; };
+		7B450AC81953D33F00E791A7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B450AC71953D33F00E791A7 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		7B450ABB1953CE2A00E791A7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7B450ABC1953CE2A00E791A7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7B450ABD1953CE2A00E791A7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7B450AC71953D33F00E791A7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				46F6B7251953C79B00DDCD6B /* UIKit.framework in Frameworks */,
 				7B450AB41953CDD800E791A7 /* Parse.framework in Frameworks */,
 				46F6B7211953C79B00DDCD6B /* Foundation.framework in Frameworks */,
+				7B450AC81953D33F00E791A7 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +159,7 @@
 		46F6B71F1953C79B00DDCD6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B450AC71953D33F00E791A7 /* FacebookSDK.framework */,
 				7B450AB51953CE2A00E791A7 /* AudioToolbox.framework */,
 				7B450AB61953CE2A00E791A7 /* CFNetwork.framework */,
 				7B450AB71953CE2A00E791A7 /* CoreLocation.framework */,
@@ -484,6 +488,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/georgewu/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Poke/Poke-Prefix.pch";
@@ -501,6 +506,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/georgewu/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Poke/Poke-Prefix.pch";
