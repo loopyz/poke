@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "HomeViewController.h"
 
 @interface LoginViewController ()
 
@@ -28,6 +29,10 @@
   NSArray *permissionsArray = @[@"user_about_me", @"user_friends"];
   
   //here have people login
+  
+  //push to view controller?
+  HomeViewController *svc = [[HomeViewController alloc] init];
+  [self.navigationController pushViewController:svc animated:YES];
 }
 
 - (void)viewDidLoad

@@ -37,12 +37,12 @@
       //SecondViewController
       NearbyFriendsViewController *svc=[[NearbyFriendsViewController alloc]initWithNibName:nil bundle:nil];
       svc.title=@"";
-      svc.tabBarItem.image=[UIImage imageNamed:@"contacts.png"];
+      svc.tabBarItem.image=[UIImage imageNamed:@"nearby.png"];
       
       //ThirdViewController
       PokesViewController *tvc=[[PokesViewController alloc]initWithNibName:nil bundle:nil];
       tvc.title=@"";
-      tvc.tabBarItem.image=[UIImage imageNamed:@"facebooktab.png"];
+      tvc.tabBarItem.image=[UIImage imageNamed:@"pokes.png"];
       
       self.viewControllers=[NSArray arrayWithObjects:svc, tvc, nil];
     }
@@ -51,10 +51,43 @@
 
 - (void)initNavBar
 {
-  //set back button color
-  [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,nil] forState:UIControlStateNormal];
-  //set back button arrow color
-  [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+  [self.navigationController setNavigationBarHidden:NO];
+  // Background image for navbar
+  [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbg.png"]
+                                     forBarMetrics: UIBarMetricsDefault];
+  
+  // Left bar button item.
+  UIBarButtonItem *lbb =  [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"person.png"]
+                                                           style:UIBarButtonItemStylePlain
+                                                          target:self
+                                                          action:@selector(launchGameView)];
+  lbb.tintColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+  self.navigationItem.leftBarButtonItem = lbb;
+  
+  // Logo in the center of navigation bar
+  UIView *logoView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 226, 59)];
+  UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navlogo.png"]];
+  titleImageView.frame = CGRectMake(55, 14, titleImageView.frame.size.width/2, titleImageView.frame.size.height/2);
+  [logoView addSubview:titleImageView];
+  self.navigationItem.titleView = logoView;
+  
+  // Right bar button item to launch the categories selection screen.
+  UIBarButtonItem *rbb = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"plus.png"]
+                                                          style:UIBarButtonItemStylePlain
+                                                         target:self
+                                                         action:@selector(launchAddGameView)];
+  
+  rbb.tintColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+  self.navigationItem.rightBarButtonItem = rbb;
+  
+  [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+  self.navigationController.navigationBar.translucent = NO;
+  
+  //back button
+  self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Create Game" style:UIBarButtonItemStylePlain target:nil action:nil];
+  
+  
+  [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
   
 }
 
