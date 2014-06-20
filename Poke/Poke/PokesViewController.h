@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PokesViewController : UIViewController
+@interface PokesViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
