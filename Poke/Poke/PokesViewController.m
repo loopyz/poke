@@ -7,7 +7,7 @@
 //
 
 #import "PokesViewController.h"
-
+#import <Parse/Parse.h>
 @interface PokesViewController ()
 {
   NSMutableArray *_pokes;
@@ -20,7 +20,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-      _pokes = [[NSMutableArray alloc] init];
+      PFUser *user = [PFUser currentUser];
+      _pokes = user[@"pokes"];
     }
     return self;
 }
@@ -52,8 +53,20 @@
   if (!cell) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
   }
-  cell.textLabel.text = @"lucy guo";
+  
+  NSDictionary *dict = [_pokes objectAtIndex:indexPath.row];
+  for(NSString *key in [dict allKeys]) {
+    NSLog(@"%@",[dict objectForKey:key]);
+  }
+  
+  
   return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  
 }
 
 @end
