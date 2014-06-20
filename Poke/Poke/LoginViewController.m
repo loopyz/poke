@@ -13,37 +13,120 @@
 @end
 
 @implementation LoginViewController
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+    // Custom initialization
+    // moved to view did load temporarily
+  }
+  return self;
+}
+
+- (IBAction)buttonTouched:(id)sender
+{
+  NSArray *permissionsArray = @[@"user_about_me", @"user_friends"];
+  
+  //here have people login
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+  [super viewDidLoad];
+	// Do any additional setup after loading the view.
+  [self.navigationController setNavigationBarHidden:YES];
+  
+  // check if user is cached and linked to Facebook and bypass login if so
+  //here you gooo
+  
+  // otherwise do login
+  [self addBackgroundImage];
+  [self addLogo];
+  
+	// Do any additional setup after loading the view.
+  [self setupFacebookLogin];
+  [self setupNormalLogin];
+  [self setupRegisterButton];
+  
+}
+
+- (void)setupRegisterButton
+{
+  // Do any additional setup after loading the view.
+  self.facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [self.facebookButton setTitle:@"Show View" forState:UIControlStateNormal];
+  
+  self.facebookButton.frame = CGRectMake((self.view.frame.size.width - 278)/2 + 3, 500, 278, 41);
+  [self.facebookButton addTarget:self action:@selector(normalLoginTouched) forControlEvents:UIControlEventTouchUpInside];
+  
+  UIImage *btnImage = [UIImage imageNamed:@"email-register.png"];
+  [self.facebookButton setImage:btnImage forState:UIControlStateNormal];
+  self.facebookButton.contentMode = UIViewContentModeScaleToFill;
+  
+  [self.view addSubview:self.facebookButton];
+}
+
+- (void)setupNormalLogin
+{
+  // Do any additional setup after loading the view.
+  self.facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [self.facebookButton setTitle:@"Show View" forState:UIControlStateNormal];
+  
+  self.facebookButton.frame = CGRectMake((self.view.frame.size.width - 278)/2 + 3, 450, 278, 41);
+  [self.facebookButton addTarget:self action:@selector(normalLoginTouched) forControlEvents:UIControlEventTouchUpInside];
+  
+  UIImage *btnImage = [UIImage imageNamed:@"email-login.png"];
+  [self.facebookButton setImage:btnImage forState:UIControlStateNormal];
+  self.facebookButton.contentMode = UIViewContentModeScaleToFill;
+  
+  [self.view addSubview:self.facebookButton];
+}
+
+- (void)normalLoginTouched
+{
+ //lol we'll have this later
+}
+
+- (void)setupFacebookLogin
+{
+  // Do any additional setup after loading the view.
+  self.facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [self.facebookButton setTitle:@"Show View" forState:UIControlStateNormal];
+  
+  self.facebookButton.frame = CGRectMake((self.view.frame.size.width - 278)/2 + 3, 400, 278, 41);
+  [self.facebookButton addTarget:self action:@selector(buttonTouched:) forControlEvents:UIControlEventTouchUpInside];
+  
+  UIImage *btnImage = [UIImage imageNamed:@"facebook-login.png"];
+  [self.facebookButton setImage:btnImage forState:UIControlStateNormal];
+  self.facebookButton.contentMode = UIViewContentModeScaleToFill;
+  
+  [self.view addSubview:self.facebookButton];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)addBackgroundImage
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+  UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+  imageView.image = [UIImage imageNamed:@"login-bg.png"];
+  
+  [self.view insertSubview:imageView atIndex:0];
 }
-*/
+
+- (void)addLogo
+{
+  UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - 230.5)/2 - 13, 40, 230.5, 180.5)];
+  imgView.image = [UIImage imageNamed:@"logo.png"];
+  [self.view addSubview:imgView];
+}
 
 @end

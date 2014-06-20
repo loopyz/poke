@@ -23,6 +23,11 @@
 		46F6B7541953C8CD00DDCD6B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F6B7531953C8CD00DDCD6B /* HomeViewController.m */; };
 		46F6B7581953C9B300DDCD6B /* NearbyFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F6B7571953C9B300DDCD6B /* NearbyFriendsViewController.m */; };
 		46F6B75B1953C9D500DDCD6B /* PokesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F6B75A1953C9D500DDCD6B /* PokesViewController.m */; };
+		46F6B7621953CF3200DDCD6B /* email-login.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F6B75D1953CF3200DDCD6B /* email-login.png */; };
+		46F6B7631953CF3200DDCD6B /* email-register.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F6B75E1953CF3200DDCD6B /* email-register.png */; };
+		46F6B7641953CF3200DDCD6B /* facebook-login.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F6B75F1953CF3200DDCD6B /* facebook-login.png */; };
+		46F6B7651953CF3200DDCD6B /* login-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F6B7601953CF3200DDCD6B /* login-bg.png */; };
+		46F6B7661953CF3200DDCD6B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F6B7611953CF3200DDCD6B /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,11 @@
 		46F6B7571953C9B300DDCD6B /* NearbyFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyFriendsViewController.m; sourceTree = "<group>"; };
 		46F6B7591953C9D500DDCD6B /* PokesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokesViewController.h; sourceTree = "<group>"; };
 		46F6B75A1953C9D500DDCD6B /* PokesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokesViewController.m; sourceTree = "<group>"; };
+		46F6B75D1953CF3200DDCD6B /* email-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-login.png"; sourceTree = "<group>"; };
+		46F6B75E1953CF3200DDCD6B /* email-register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-register.png"; sourceTree = "<group>"; };
+		46F6B75F1953CF3200DDCD6B /* facebook-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-login.png"; sourceTree = "<group>"; };
+		46F6B7601953CF3200DDCD6B /* login-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bg.png"; sourceTree = "<group>"; };
+		46F6B7611953CF3200DDCD6B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +129,7 @@
 		46F6B7261953C79B00DDCD6B /* Poke */ = {
 			isa = PBXGroup;
 			children = (
+				46F6B75C1953CF3200DDCD6B /* images */,
 				46F6B72F1953C79B00DDCD6B /* AppDelegate.h */,
 				46F6B7301953C79B00DDCD6B /* AppDelegate.m */,
 				46F6B7321953C79B00DDCD6B /* Images.xcassets */,
@@ -163,6 +174,18 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		46F6B75C1953CF3200DDCD6B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				46F6B75D1953CF3200DDCD6B /* email-login.png */,
+				46F6B75E1953CF3200DDCD6B /* email-register.png */,
+				46F6B75F1953CF3200DDCD6B /* facebook-login.png */,
+				46F6B7601953CF3200DDCD6B /* login-bg.png */,
+				46F6B7611953CF3200DDCD6B /* logo.png */,
+			);
+			path = images;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -239,8 +262,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F6B7641953CF3200DDCD6B /* facebook-login.png in Resources */,
 				46F6B72B1953C79B00DDCD6B /* InfoPlist.strings in Resources */,
+				46F6B7651953CF3200DDCD6B /* login-bg.png in Resources */,
 				46F6B7331953C79B00DDCD6B /* Images.xcassets in Resources */,
+				46F6B7661953CF3200DDCD6B /* logo.png in Resources */,
+				46F6B7621953CF3200DDCD6B /* email-login.png in Resources */,
+				46F6B7631953CF3200DDCD6B /* email-register.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
