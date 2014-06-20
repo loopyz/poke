@@ -39,7 +39,7 @@
 {
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
-  [self.navigationController setNavigationBarHidden:YES];
+  //[self.navigationController setNavigationBarHidden:YES];
   
   // check if user is cached and linked to Facebook and bypass login if so
   //here you gooo
