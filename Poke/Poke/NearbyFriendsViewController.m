@@ -7,6 +7,7 @@
 //
 
 #import "NearbyFriendsViewController.h"
+#import <Parse/Parse.h>
 
 @interface NearbyFriendsViewController ()
 
@@ -19,8 +20,23 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+      [self getFriendsInFB];
     }
     return self;
+}
+
+//finds friends in your contacts list
+- (void)getFriendsInFB
+{
+  FBRequest *request = [FBRequest requestForMyFriends];
+  [request startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary *result, NSError *error) {
+    if (!error) {
+      NSArray *data = [result objectForKey:@"data"];
+      self.friendsInFB = data;
+      [self.tableView reloadData];
+    }
+  }];
+  
 }
 
 - (void)viewDidLoad
@@ -35,15 +51,84 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Table view data source
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#warning Potentially incomplete method implementation.
+  // Return the number of sections.
+  return 1;
 }
-*/
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+#warning Incomplete method implementation.
+  // Return the number of rows in the section.
+  return [self.friendsInFB count];
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  return 60;
+}
+
+
+//for each cell in table
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+  static NSString *MyIdentifier = @"Cell";
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+  if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
+  }
+  FBGraphObject<FBGraphUser> *tempPerson = self.friendsInFB[indexPath.row];
+  cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [tempPerson first_name], [tempPerson last_name]];
+  //cell.backgroundColor = [UIColor clearColor];
+  cell.backgroundColor = self.bgColor;
+  return cell;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  //TODO: MAKE IT SEND A POKE
+  UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+  NSString *player = cell.textLabel.text;
+  if (cell.accessoryType == UITableViewCellAccessoryNone) {
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    // sends the person a request. (for now, the table has all fb friends on the app(even ones that you added to your in-app list of friends that you play with)).
+    FBGraphObject<FBGraphUser> *tempPerson = self.friendsInFB[indexPath.row];
+    PFQuery *userQuery = [PFUser query];
+    [userQuery whereKey:@"fbId" equalTo:tempPerson[@"id"]];
+    [userQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+      if (object && !error) {
+        PFUser *otherUser = (PFUser *) object;
+        PFUser *thisUser = [PFUser currentUser];
+        NSMutableArray *otherRequests = otherUser[@"requests"];
+        if (!otherRequests) {
+          otherRequests = [[NSMutableArray alloc] init];
+        }
+        [otherRequests addObject:thisUser];
+        
+        NSMutableArray *thisRequested = [thisUser objectForKey:@"requested"];
+        if (!thisRequested) {
+          thisRequested = [[NSMutableArray alloc] init];
+        }
+        [thisRequested addObject:otherUser];
+        
+        [otherUser setObject:otherRequests forKey:@"requests"];
+        [thisUser setObject:thisRequested forKey:@"requested"];
+        
+        //[otherUser saveInBackground];
+        //[thisUser saveInBackground];
+      }
+    }];
+    NSLog(@"accepted player %@", player);
+  } else {
+    // deselected
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+  }
+}
 @end
+

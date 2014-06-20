@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NearbyFriendsViewController : UIViewController
+@interface NearbyFriendsViewController : UITableViewController
+
+@property (strong, nonatomic, readwrite) NSMutableArray *friendsInFB;
+@property (strong, nonatomic) UIColor *bgColor;
 
 @end

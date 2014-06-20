@@ -110,6 +110,7 @@
 {
   [super viewWillAppear:animated];
   [self assignTabColors];
+  [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)changeBG
