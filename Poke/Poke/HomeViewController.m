@@ -7,6 +7,8 @@
 //
 
 #import "HomeViewController.h"
+#import "NearbyFriendsViewController.h"
+#import "PokesViewController.h"
 
 #define SCREEN_WIDTH ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
 #define SCREEN_HEIGHT ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
@@ -28,6 +30,21 @@
       // Custom initialization
       [self changeBG];
       [self initNavBar];
+      
+      //tab bars
+      
+      
+      //SecondViewController
+      NearbyFriendsViewController *svc=[[NearbyFriendsViewController alloc]initWithNibName:nil bundle:nil];
+      svc.title=@"";
+      svc.tabBarItem.image=[UIImage imageNamed:@"contacts.png"];
+      
+      //ThirdViewController
+      PokesViewController *tvc=[[PokesViewController alloc]initWithNibName:nil bundle:nil];
+      tvc.title=@"";
+      tvc.tabBarItem.image=[UIImage imageNamed:@"facebooktab.png"];
+      
+      self.viewControllers=[NSArray arrayWithObjects:svc, tvc, nil];
     }
     return self;
 }
@@ -39,6 +56,31 @@
   //set back button arrow color
   [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
   
+}
+
+- (void)assignTabColors
+{
+  switch (self.selectedIndex) {
+    case 0: {
+      UIColor * color = [UIColor colorWithRed:41/255.0f green:178/255.0f blue:177/255.0f alpha:1.0f];
+      self.view.tintColor = color;
+      break;
+    }
+      
+    default:
+      break;
+  }
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+  [self assignTabColors];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  [self assignTabColors];
 }
 
 - (void)changeBG

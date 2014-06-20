@@ -21,6 +21,8 @@
 		46F6B7461953C79B00DDCD6B /* PokeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F6B7451953C79B00DDCD6B /* PokeTests.m */; };
 		46F6B7511953C83500DDCD6B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F6B7501953C83500DDCD6B /* LoginViewController.m */; };
 		46F6B7541953C8CD00DDCD6B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F6B7531953C8CD00DDCD6B /* HomeViewController.m */; };
+		46F6B7581953C9B300DDCD6B /* NearbyFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F6B7571953C9B300DDCD6B /* NearbyFriendsViewController.m */; };
+		46F6B75B1953C9D500DDCD6B /* PokesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F6B75A1953C9D500DDCD6B /* PokesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,10 @@
 		46F6B7501953C83500DDCD6B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		46F6B7521953C8CD00DDCD6B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		46F6B7531953C8CD00DDCD6B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		46F6B7561953C9B300DDCD6B /* NearbyFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyFriendsViewController.h; sourceTree = "<group>"; };
+		46F6B7571953C9B300DDCD6B /* NearbyFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyFriendsViewController.m; sourceTree = "<group>"; };
+		46F6B7591953C9D500DDCD6B /* PokesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokesViewController.h; sourceTree = "<group>"; };
+		46F6B75A1953C9D500DDCD6B /* PokesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,10 @@
 				46F6B7501953C83500DDCD6B /* LoginViewController.m */,
 				46F6B7521953C8CD00DDCD6B /* HomeViewController.h */,
 				46F6B7531953C8CD00DDCD6B /* HomeViewController.m */,
+				46F6B7561953C9B300DDCD6B /* NearbyFriendsViewController.h */,
+				46F6B7571953C9B300DDCD6B /* NearbyFriendsViewController.m */,
+				46F6B7591953C9D500DDCD6B /* PokesViewController.h */,
+				46F6B75A1953C9D500DDCD6B /* PokesViewController.m */,
 			);
 			path = Poke;
 			sourceTree = "<group>";
@@ -253,6 +263,8 @@
 				46F6B72D1953C79B00DDCD6B /* main.m in Sources */,
 				46F6B7511953C83500DDCD6B /* LoginViewController.m in Sources */,
 				46F6B7541953C8CD00DDCD6B /* HomeViewController.m in Sources */,
+				46F6B7581953C9B300DDCD6B /* NearbyFriendsViewController.m in Sources */,
+				46F6B75B1953C9D500DDCD6B /* PokesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
